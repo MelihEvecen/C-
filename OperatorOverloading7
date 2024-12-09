@@ -1,0 +1,23 @@
+#include <iostream>
+using namespace std;
+class Counter{
+private:
+	int value;
+public:
+	Counter(int v = 0) :value(v) {}
+	Counter operator++(int) {
+		Counter temp = *this;
+		value++;
+		return temp;
+	}
+	void display() {
+		cout << value<<endl;
+	}
+};
+int main() {
+	Counter c1(15);
+	Counter temp = c1++;
+	temp.display();
+	c1.display();
+	return 0;
+}
