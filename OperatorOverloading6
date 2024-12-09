@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+class Complex{
+private:
+	double real, imag;
+public:
+	Complex(double r=0, double i=0) :real(r), imag(i){}
+	friend istream& operator>> (istream& in, Complex& c){
+		cout << "Enter real part ";
+		in >> c.real;
+		cout << "Enter imag part";
+		in >> c.imag;
+		return in;
+	}
+	friend ostream& operator<<(ostream& out, Complex& c) {
+		out << c.real << "+" << c.imag << "i";
+		return out;
+	}
+};
+int main() {
+	Complex c1;
+	cin >> c1;
+	cout << "You entered :" << c1 << endl;
+	return 0;
+}
