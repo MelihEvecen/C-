@@ -1,0 +1,23 @@
+#include <iostream>
+using namespace std;
+class Timer{
+	int seconds;
+public:
+	Timer(int s):seconds(s){}
+	Timer operator--(int) {
+		Timer temp = *this;
+		seconds--;
+		return temp;
+	}
+	void display() {
+		cout << "Time:" << seconds << "seconds" << endl;
+	}
+};
+int main() {
+	Timer t(10);
+	Timer temp = t--;
+	temp.display();
+	t.display();
+
+	return 0;
+}
