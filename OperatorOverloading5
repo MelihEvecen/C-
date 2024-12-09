@@ -1,0 +1,20 @@
+#include <iostream>
+using namespace std;
+class Rectangle{
+	double width, height;
+public:
+	Rectangle(double w=0, double h=0) :width(w), height(h){}
+	bool operator==(const Rectangle& other) const {
+		return (width == other.width && height == other.height);
+	}
+	void display() {
+		cout << "Rectangle:" << width << " " << height << endl;
+	}
+};
+int main() {
+	Rectangle r1 (4, 13);
+	Rectangle r2 (4, 12);
+	cout << (r1 == r2 ? "Equal" : "Not equal");
+
+	return 0;
+}
