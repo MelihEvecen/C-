@@ -1,0 +1,32 @@
+#include <iostream>
+using namespace std;
+class Calisan {
+private:
+	string pozisyon;
+public:
+	string isim;
+	int yas;
+	Calisan(string _isim, int _yas) :isim(_isim), pozisyon("bilinmiyor"), yas(_yas) {}
+	Calisan(string _isim, string _pozisyon, int _yas) :isim(_isim), pozisyon(_pozisyon), yas(_yas) {}
+	void setPozisyon(string _pozisyon) {
+		pozisyon = _pozisyon;
+	}
+	string getPozisyon() {
+		return pozisyon;
+	}
+	void Yazdir(){
+		cout << pozisyon << " " << isim << yas << endl;
+	}
+ };
+int main() {
+	Calisan c1("Melih", "Sag kanat", 25);
+	Calisan c2("Arda", 23);
+	Calisan c3("Alperen", "Defans", 22);
+	c1.Yazdir();
+	c2.Yazdir();
+	c3.Yazdir();
+
+	
+	
+	return 0;
+}
