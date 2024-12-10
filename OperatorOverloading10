@@ -1,0 +1,61 @@
+#include <iostream>
+using namespace std;
+
+class Matrix {
+    int arr[2][2];
+
+public:
+    Matrix(int a = 0, int b = 0, int c = 0, int d = 0) {
+        arr[0][0] = a;
+        arr[0][1] = b;
+        arr[1][0] = c;
+        arr[1][1] = d;
+    }
+
+    Matrix operator+(const Matrix& other) {
+        Matrix result;
+        for (int i = 0; i < 2; i++) {
+            for (int j = 0; j < 2; j++) {
+                result.arr[i][j] = arr[i][j] + other.arr[i][j];
+            }
+        }
+        return result;
+    }
+
+    friend istream& operator>>(istream& in, Matrix& other);
+    friend ostream& operator<<(ostream& out, const Matrix& other);
+};
+
+istream& operator>>(istream& in, Matrix& other) {
+    cout << "2x2 matrixi giriniz:" << endl;
+    for (int i = 0; i < 2; i++) {
+        for (int j = 0; j < 2; j++) {
+            in >> other.arr[i][j];
+        }
+    }
+    return in;
+}
+
+ostream& operator<<(ostream& out, const Matrix& other) {
+    out << "2x2 matrix:" << endl;
+    for (int i = 0; i < 2; i++) {
+        for (int j = 0; j < 2; j++) {
+            out << other.arr[i][j] << " ";
+        }
+        out << endl;
+    }
+    return out;
+}
+
+int main() {
+    Matrix m1, m2;
+    cout << "Birinci matrix:" << endl;
+    cin >> m1;
+    cout << "İkinci matrix:" << endl;
+    cin >> m2;
+
+    Matrix m3 = m1 + m2;
+    cout << "Toplam matrix:" << endl << m3;
+
+    return 0;
+}
